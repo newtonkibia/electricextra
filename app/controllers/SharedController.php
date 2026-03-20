@@ -40,4 +40,36 @@ class SharedController extends BaseController{
 		return $arr;
 	}
 
+	/**
+     * getcount_users Model Action
+     * @return Value
+     */
+	function getcount_users(){
+		$db = $this->GetModel();
+		$sqltext = "SELECT COUNT(*) AS num FROM users";
+		$queryparams = null;
+		$val = $db->rawQueryValue($sqltext, $queryparams);
+		
+		if(is_array($val)){
+			return $val[0];
+		}
+		return $val;
+	}
+
+	/**
+     * getcount_feature Model Action
+     * @return Value
+     */
+	function getcount_feature(){
+		$db = $this->GetModel();
+		$sqltext = "SELECT COUNT(*) AS num FROM feature";
+		$queryparams = null;
+		$val = $db->rawQueryValue($sqltext, $queryparams);
+		
+		if(is_array($val)){
+			return $val[0];
+		}
+		return $val;
+	}
+
 }
